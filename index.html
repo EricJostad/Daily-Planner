@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="moment.js" type="text/javascript"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -27,7 +28,26 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
+      <div id="displayMoment"></div>
     </header>
+    <script type="text/javascript">
+        (function()
+        {
+          // instantiate a moment object
+          var NowMoment = moment();
+          
+          // instantiate a JavaScript Date object
+          var NowDate = new Date();
+          
+          // display value of moment object in #displayMoment div
+          var eDisplayMoment = document.getElementById('displayMoment');
+          eDisplayMoment.innerHTML = NowMoment;
+          
+          // display value of Date object in #displayJsDate div
+          var eDisplayDate = document.getElementById('displayJsDate');
+          eDisplayDate.innerHTML = NowDate;
+        })();
+        </script>
     <div class="container">
       <!-- Timeblocks go here -->
     </div>
