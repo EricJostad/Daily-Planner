@@ -42,14 +42,14 @@
 
     })();
 
-      var currentHour = moment().hour();
+      const currentHour = moment().hour();
       for (let i = 0; i < 24; i++) {
-      var div = $("<div>").addClass("time-block row");
-      var textArea = $("<textarea>").addClass("textarea");
+      const div = $("<div>").addClass("time-block row");
+      const textArea = $("<textarea>").addClass("textarea");
       if(currentHour > i){
         textArea.addClass("present");
       }
-      var button = $("<button>").addClass("saveBtn").text;
+      const button = $("<button>").addClass("saveBtn").text;
       div.append(textArea, button);
       $(".container").append(div);
     }
