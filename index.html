@@ -43,6 +43,12 @@
     })();
 
     timeRows();
+    addSaveNotesEventListener()
+
+    function addSaveNotesEventListener(){
+      $(".saveBtn").click(function(){
+        alert($(this).attr("data-time-slot"));
+    })}
 
     function timeRows(){
       const currentHour = moment().hour();
