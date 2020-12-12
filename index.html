@@ -43,13 +43,14 @@
     })();
 
       const currentHour = moment().hour();
-      for (let i = 0; i < 24; i++) {
+      for (var i = 0; i < 24; i++) {
       const div = $("<div>").addClass("time-block row");
       const textArea = $("<textarea>").addClass("textarea");
       if(currentHour > i){
         textArea.addClass("present");
       }
-      const button = $("<button>").addClass("saveBtn").text;
+      const button = $("<button>").addClass("saveBtn").text("Save")
+      .attr("data-time-slot", i);
       div.append(textArea, button);
       $(".container").append(div);
     }
