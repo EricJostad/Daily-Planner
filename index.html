@@ -42,6 +42,9 @@
 
     })();
 
+    timeRows();
+
+    function timeRows(){
       const currentHour = moment().hour();
       for (var i = 0; i < 24; i++) {
       const div = $("<div>").addClass("time-block row");
@@ -53,6 +56,7 @@
       .attr("data-time-slot", i);
       div.append(textArea, button);
       $(".container").append(div);
+      }
     }
 
   </Script>
