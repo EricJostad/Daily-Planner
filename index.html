@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -42,31 +42,35 @@
 
     })();
 
-    timeRows();
-    addSaveNotesEventListener()
+    hourSlots();
+    addSaveEventListener()
 
-    function addSaveNotesEventListener(){
-      $(".saveBtn").click(function(){
-        alert($(this).attr("data-time-slot"));
-    })}
-
-    function timeRows(){
-      const currentHour = moment().hour();
+    function hourSlots() {
+      var currentHour = moment().hour();
       for (var i = 0; i < 24; i++) {
-      const div = $("<div>").addClass("time-block row");
-      const textArea = $("<textarea>").addClass("textarea");
-      if(currentHour > i){
-        textArea.addClass("past");
-      } else if(currentHour == i){
-        textArea.addClass("present");
-      } else if(currentHour < i){
-        textArea.addClass("future");
+        var div = $("<div>").addClass("time-block row");
+        var textArea = $("<textarea>").addClass("textarea");
+        if (currentHour > i) {
+          textArea.addClass("past");
+        } else if (currentHour == i) {
+          textArea.addClass("present");
+        } else if (currentHour < i) {
+          textArea.addClass("future");
+        }
+        var button = $("<button>").addClass("saveBtn").text("Save")
+          .attr("data-time-slot", i);
+        div.append(textArea, button);
+        $(".container").append(div);
       }
-      const button = $("<button>").addClass("saveBtn").text("Save")
-      .attr("data-time-slot", i);
-      div.append(textArea, button);
-      $(".container").append(div);
-      }
+    }
+
+    function addSaveEventListener() {
+      $(".saveBtn").click(function () {
+        var timeSlot = $(this).attr("data-time-slot");
+        var key = `DailyPlanner:${timeSlot}`
+        var value = $(this).siblings("textarea").val()
+        localStorage.setItem(key, value);
+      })
     }
 
   </Script>
