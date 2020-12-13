@@ -57,6 +57,12 @@
         var div = $("<div>").addClass("time-block row");
         var textArea = $("<textarea>").addClass("textarea");
 
+      //The save button & icon variables are being defined here 
+        var button = $("<button>").addClass("saveBtn")
+        .attr("data-time-slot", i);
+        var saveIcon = $("<i>").addClass("far fa-save");
+        button.append(saveIcon);
+
         //The following if / else if statements control the color of the timeslots based on the current hour of the day
         if (presentHour > i) {
           textArea.addClass("past");
@@ -65,10 +71,6 @@
         } else if (presentHour < i) {
           textArea.addClass("future");
         }
-
-        //The button variable is being defined here 
-        var button = $("<button>").addClass("saveBtn").text("Save")
-        .attr("data-time-slot", i);
 
         //Lastly, the below code is responsible for appending/printing the textArea and button variables to the page
         div.append(textArea, button);
