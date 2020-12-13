@@ -33,23 +33,31 @@
 
   <script type="text/javascript">
     (function () {
-      // instantiate a moment object	
+      // Instantiate a moment object	
       var NowMoment = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
-      // display value of moment object in #displayMoment div	
+      // Display value of moment object in #displayMoment div	
       var eDisplayMoment = document.getElementById('displayMoment');
       eDisplayMoment.innerHTML = NowMoment;
 
     })();
-
+    
+    //The calls for my functions go here
     hourSlots();
     addSaveEventListener()
 
+    //This function renders the time slots to the screen
     function hourSlots() {
       var currentHour = moment().hour();
+
+      //The for loop iterates through every hour of the day
       for (var i = 0; i < 24; i++) {
+
+      //The below variables are being defined to be used within the function
         var div = $("<div>").addClass("time-block row");
         var textArea = $("<textarea>").addClass("textarea");
+
+        //The following if / else if statements control the color of the timeslots based on the current hour of the day
         if (currentHour > i) {
           textArea.addClass("past");
         } else if (currentHour == i) {
@@ -57,18 +65,25 @@
         } else if (currentHour < i) {
           textArea.addClass("future");
         }
+
+        //The button variable is being defined here 
         var button = $("<button>").addClass("saveBtn").text("Save")
-          .attr("data-time-slot", i);
+        .attr("data-time-slot", i);
+
+        //Lastly, the below code is responsible for appending/printing the textArea and button variables to the page
         div.append(textArea, button);
         $(".container").append(div);
       }
     }
 
+    //The following function is responsible for adding an On Click event listener for the save button
     function addSaveEventListener() {
       $(".saveBtn").click(function () {
         var timeSlot = $(this).attr("data-time-slot");
         var key = `DailyPlanner:${timeSlot}`
         var value = $(this).siblings("textarea").val()
+
+        //This code allows the on click event to store the value within the sibling text area
         localStorage.setItem(key, value);
       })
     }
