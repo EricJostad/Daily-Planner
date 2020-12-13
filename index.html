@@ -56,7 +56,11 @@
       const div = $("<div>").addClass("time-block row");
       const textArea = $("<textarea>").addClass("textarea");
       if(currentHour > i){
+        textArea.addClass("past");
+      } else if(currentHour == i){
         textArea.addClass("present");
+      } else if(currentHour < i){
+        textArea.addClass("future");
       }
       const button = $("<button>").addClass("saveBtn").text("Save")
       .attr("data-time-slot", i);
