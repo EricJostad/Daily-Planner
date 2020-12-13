@@ -48,7 +48,7 @@
 
     //This function renders the time slots to the screen
     function hourSlots() {
-      var currentHour = moment().hour();
+      var presentHour = moment().hour();
 
       //The for loop iterates through every hour of the day
       for (var i = 0; i < 24; i++) {
@@ -58,11 +58,11 @@
         var textArea = $("<textarea>").addClass("textarea");
 
         //The following if / else if statements control the color of the timeslots based on the current hour of the day
-        if (currentHour > i) {
+        if (presentHour > i) {
           textArea.addClass("past");
-        } else if (currentHour == i) {
+        } else if (presentHour == i) {
           textArea.addClass("present");
-        } else if (currentHour < i) {
+        } else if (presentHour < i) {
           textArea.addClass("future");
         }
 
