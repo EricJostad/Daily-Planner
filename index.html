@@ -56,6 +56,12 @@
       //The below variables are being defined to be used within the function
         var div = $("<div>").addClass("time-block row");
         var textArea = $("<textarea>").addClass("textarea");
+        var hour = $("<div>").addClass("hour");
+        
+      // The below variables allow the stored text values to persist after page reload. Code inspired by instructor lesson.
+        var key = `DailyPlanner: ${i}`
+        var storageValue = localStorage.getItem(key);
+        textArea.val(storageValue);
 
       //The save button & icon variables are being defined here 
         var button = $("<button>").addClass("saveBtn")
@@ -73,7 +79,7 @@
         }
 
         //Lastly, the below code is responsible for appending/printing the textArea and button variables to the page
-        div.append(textArea, button);
+        div.append(textArea, button, hour);
         $(".container").append(div);
       }
     }
@@ -81,8 +87,10 @@
     //The following function is responsible for adding an On Click event listener for the save button
     function addSaveEventListener() {
       $(".saveBtn").click(function () {
+
+        // The below variables set up the localStorage.setItem to act as expected and store text value to local storage. Code inspired by instructor lesson
         var timeSlot = $(this).attr("data-time-slot");
-        var key = `DailyPlanner:${timeSlot}`
+        var key = `DailyPlanner: ${timeSlot}`
         var value = $(this).siblings("textarea").val()
 
         //This code allows the on click event to store the value within the sibling text area

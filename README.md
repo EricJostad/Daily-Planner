@@ -4,9 +4,7 @@ This is a scheduling application that will allow the user to save events to spec
 
 The save functionality utilises local storage within the browser, and retrieves that stored data when the page 
 
-reloads for a persistant and reliable schedule. NOTE: The developer is still working on the persistant portion 
-
-of the application, and will update the Read Me once finalized. 
+reloads for a persistant and reliable schedule. 
 
 The application utilises moment.js for most of the heavy-lifting, and all for obtaining real time date and time. 
 
