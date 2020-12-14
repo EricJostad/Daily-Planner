@@ -41,7 +41,7 @@
       eDisplayMoment.innerHTML = NowMoment;
 
     })();
-    
+
     //The calls for my functions go here
     hourSlots();
     addSaveEventListener()
@@ -51,21 +51,21 @@
       var presentHour = moment().hour();
 
       //The for loop iterates through every hour of the day
-      for (var i = 0; i < 24; i++) {
+      for (var i = 00; i < 24; i++) {
 
-      //The below variables are being defined to be used within the function
+        //The below variables are being defined to be used within the function
         var div = $("<div>").addClass("time-block row");
         var textArea = $("<textarea>").addClass("textarea");
-        var hour = $("<div>").addClass("hour");
-        
-      // The below variables allow the stored text values to persist after page reload. Code inspired by instructor lesson.
+        var hour = $("<hour>").addClass("hour");
+
+        // The below variables allow the stored text values to persist after page reload. Code inspired by instructor lesson.
         var key = `DailyPlanner: ${i}`
         var storageValue = localStorage.getItem(key);
         textArea.val(storageValue);
 
-      //The save button & icon variables are being defined here 
+        //The save button & icon variables are being defined here 
         var button = $("<button>").addClass("saveBtn")
-        .attr("data-time-slot", i);
+          .attr("data-time-slot", i);
         var saveIcon = $("<i>").addClass("far fa-save");
         button.append(saveIcon);
 
@@ -82,6 +82,24 @@
         div.append(textArea, button, hour);
         $(".container").append(div);
       }
+
+      //Was thinking of using below code syntax to programatically specify each time slots hours, but could not get it to work. May use in a future version
+      // for (let i = 00; i < 24; i++) {
+
+      //   var div = $("<div>").addClass("time-block row");
+      //   var textArea = $("<textarea>").addClass("textarea");
+      //   var hour = $("<div>").addClass("hour");
+
+      //   var displayHour = 0;
+      //   var ampm = "";
+      //   if (hour > 12) {
+      //     displayHour = hour - 12;
+      //     ampm = "pm";
+      //   } else {
+      //     displayHour = hour;
+      //     ampm = "am";
+      //   }
+      // }
     }
 
     //The following function is responsible for adding an On Click event listener for the save button
@@ -97,6 +115,7 @@
         localStorage.setItem(key, value);
       })
     }
+
 
   </Script>
 
