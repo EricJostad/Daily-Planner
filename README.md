@@ -13,7 +13,7 @@ reloads for a persistant and reliable schedule.
 The application utilises moment.js for most of the heavy-lifting, and all for obtaining real time date and time. 
 
 ## Main Page
-![screencapture-file-C-Users-krist-code-Daily-Planner-index-html-2020-12-13-21_34_11](https://user-images.githubusercontent.com/71619046/102044121-08a96600-3d8b-11eb-99dc-dd8ed1aa34af.png)
+![Daily_Planner](https://user-images.githubusercontent.com/71619046/104116511-1ab8ee80-52ce-11eb-916e-2b1a5605fe97.PNG)
 Deployed site: https://ericjostad.github.io/Daily-Planner/
 
 ## Technologies
