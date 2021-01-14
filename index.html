@@ -32,15 +32,6 @@
   </div>
 
   <script type="text/javascript">
-    (function () {
-      // Instantiate a moment object	
-      var NowMoment = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-
-      // Display value of moment object in #displayMoment div	
-      var eDisplayMoment = document.getElementById('displayMoment');
-      eDisplayMoment.innerHTML = NowMoment;
-
-    })();
 
     //The calls for my functions go here
     hourSlots();
@@ -115,6 +106,17 @@
         localStorage.setItem(key, value);
       })
     }
+
+    // This function allows for moment.js to display the current time in real-time
+    setInterval(function () {
+      // Instantiate a moment object	
+      var NowMoment = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+
+      // Display value of moment object in #displayMoment div	
+      var eDisplayMoment = document.getElementById('displayMoment');
+      eDisplayMoment.innerHTML = NowMoment;
+
+    }, 1000)();
 
 
   </Script>
