@@ -24,7 +24,6 @@ This project is created with:
 
 
 ## Updates planned
-- Divorce the main app logic from the index.html page into its own script file. Overall update the directory organization. 
 - Update the Main Page so that each hour of the day is displayed properly in each related text box. 
 - Update styling to provide the user with a greater visual experience upon visiting the site.
 
